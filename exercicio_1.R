@@ -55,7 +55,9 @@ eleicao$segundo_turno = segundo_turno
 
 # Calcule a soma da porcentagem dos dois candidatos que obtiveram mais votos
 
-soma_favoritos <- eleicao$votos_candidatos[ 1 ] + eleicao$votos_candidatos[ 2 ]
+soma_favoritos <- eleicao$porcentagem_votos[ 1 ] + eleicao$porcentagem_votos[ 2 ]
+
+soma_favoritos
 
 # Exiba as informações do dataframe dos dois candidatos com mais votos
 
