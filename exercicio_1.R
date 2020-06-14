@@ -113,7 +113,7 @@ matriz <- matrix( c( c( 19, 22, 25 ), c( 20, 23, 26 ), c( 21, 24, 27 ) ), byrow 
 
 # Se Z é uma matriz 4 por 4, qual é o resultado de Z[1,4] ?
 
-# RESPOSTA: o resultado é o elemento na primeira linha, quarta coluna da matriz Z
+RESPOSTA: o resultado é o elemento na primeira linha, quarta coluna da matriz Z
 
 ###############################################################################
 
@@ -192,3 +192,12 @@ df[ 1:3, 1:2 ]
 
 # Responder o exercício teórico abaixo
 
+Pobreza causa menor rendimento escolar.
+
+Hipótese: uma menor renda impede o acesso à materiais e escolas de qualidade.
+          Isso diminui o rendimento e capacidade de aprendizado dos alunos.
+          
+Operacionalização: variáveis renda, escolaridade e notas
+
+Relaçãp: renda é variável independente. Escolaridade e Notas são variáveis
+         dependentes
