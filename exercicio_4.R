@@ -1,5 +1,5 @@
 
-## FaÁa todos os gr·ficos utilizando um tema que vocÍ ache mais adequado
+## Fa√ßa todos os gr√°ficos utilizando um tema que voc√™ ache mais adequado
 ## e nomeie os eixos x e y da maneira adequada
 
 ## Carregue o banco world do pacote poliscidata
@@ -16,7 +16,7 @@ library( vcd )
 
 banco <- world
 
-## Observe o banco de dados com as funÁıes adequadas
+## Observe o banco de dados com as fun√ß√µes adequadas
 
 summary( banco )
 glimpse( banco )
@@ -24,9 +24,9 @@ str( banco )
 head( banco )
 tail( banco )
 
-## A vari·vel democ_regime08 indica se um paÌs È democr·tico.
+## A vari√°vel democ_regime08 indica se um pa√≠s √© democr√°tico.
 ## Usando as ferramentas de manipulacao de bancos de dados, verifique
-## quantos paises sao democraticos ou nao, e apresente esta vari·vel 
+## quantos paises sao democraticos ou nao, e apresente esta vari√°vel 
 ## graficamente
 
 democraticos <- banco %>% filter( democ_regime08 == "Yes" )
@@ -38,12 +38,12 @@ count( nao_democraticos )
 ggplot( banco, aes( democ_regime08 ) ) +
         geom_bar( )
 
-## Teste a relaÁ„o entre a vari·vel democ_regime08 e a vari·vel
-## muslim (que indica se um paÌs È muÁulmano ou n„o). E represente
-## visualmente as vari·veis para visualizar se esta religi„o
-## aumenta ou diminui a chance de um paÌs ser democr·tico
-## Qual seria sua conclus„o com relaÁ„o a associaÁ„o destas duas
-## vari·veis?
+## Teste a rela√ß√£o entre a vari√°vel democ_regime08 e a vari√°vel
+## muslim (que indica se um pa√≠s √© mu√ßulmano ou n√£o). E represente
+## visualmente as vari√°veis para visualizar se esta religi√£o
+## aumenta ou diminui a chance de um pa√≠s ser democr√°tico
+## Qual seria sua conclus√£o com rela√ß√£o a associa√ß√£o destas duas
+## vari√°veis?
 
 ggplot( banco, aes( democ_regime08, fill = muslim ) ) +
         geom_bar( position = "fill" )
@@ -56,21 +56,21 @@ mosaicplot( tabela, shade = TRUE )
 
 assoc( tabela, shade = TRUE )
 
-# RESPOSTA: De acordo com o chi-teste, existe uma relaÁ„o positiva entr
-#          ser mulÁumano e n„o ser democr·tico, e existe uma relaÁ„o
-#          negativa entre ser mulÁumano e ser democr·tico. Ou seja,
-#          ser mulÁumano DIMINUI as chances do paÌs ser democr·tico
+# RESPOSTA: De acordo com o chi-teste, existe uma rela√ß√£o positiva entr
+#          ser mul√ßumano e n√£o ser democr√°tico, e existe uma rela√ß√£o
+#          negativa entre ser mul√ßumano e ser democr√°tico. Ou seja,
+#          ser mul√ßumano DIMINUI as chances do pa√≠s ser democr√°tico
 
-## A vari·vel gdppcap08 possui informaÁ„o sobre o PIB per capta
-## dos paÌses. FaÁa uma representaÁ„o gr·fica desta vari·vel
+## A vari√°vel gdppcap08 possui informa√ß√£o sobre o PIB per capta
+## dos pa√≠ses. Fa√ßa uma representa√ß√£o gr√°fica desta vari√°vel
 
 ggplot( banco, aes( gdppcap08 ) ) +
         geom_histogram( )
 
-## FaÁa um sumario com a mÈdia, mediana e desvio padr„o do pib per capta
-## para cada tipo de regime politico, represente a associaÁ„o destas
-## vari·veis graficamente, e faÁa o teste estatÌstico adequado para
-## chegar a uma conclus„o. Existe associaÁ‡o entre as vari·veis?
+## Fa√ßa um sumario com a m√©dia, mediana e desvio padr√£o do pib per capta
+## para cada tipo de regime politico, represente a associa√ß√£o destas
+## vari√°veis graficamente, e fa√ßa o teste estat√≠stico adequado para
+## chegar a uma conclus√£o. Existe associa√ß√†o entre as vari√°veis?
 
 banco %>% filter( !is.na( gdppcap08 ),
                   !is.na( democ_regime08 ) ) %>%
@@ -88,30 +88,27 @@ ggplot( banco, aes( democ_regime08, gdppcap08 ) ) +
 
 t.test( gdppcap08 ~ democ_regime08, data = banco )
 
-# RESPOSTA: Existe sim uma relaÁ„o positiva entre regime e renda per capta.
-#           Mais especificamente, existe uma relaÁ„o entre o fato do paÌs
-#           ser democr·tico e ele ter uma renda per capta mais alta. Tanto
-#           h· uma concentraÁ„o de paÌses democr·ticos em pontos de renda
-#           per capta mais alta, quanto a mediana da renda desses paÌses
+# RESPOSTA: Existe sim uma rela√ß√£o positiva entre regime e renda per capta.
+#           Mais especificamente, existe uma rela√ß√£o entre o fato do pa√≠s
+#           ser democr√°tico e ele ter uma renda per capta mais alta. Tanto
+#           h√° uma concentra√ß√£o de pa√≠ses democr√°ticos em pontos de renda
+#           per capta mais alta, quanto a mediana da renda desses pa√≠ses
 #           se encontra em uma faixa de renda per capta mais alta. 
 
-# COMENT¡RIO: Professor, aqui, ao invÈs de colocar Tipo de Regime PolÌtico,
-#             seria mais explÌcito colocar democ_regime08, pois tambÈm existe
-#             uma vari·vel chamada regime_type3 a qual representa justamen-
-#             regimes polÌticos. PorÈm, e eu n„o sei se isso influenciaria,
-#             essa ˙ltima vari·vel n„o È dicotÙ- mica! Ou seja, n„o podemos
+# COMENT√ÅRIO: Professor, aqui, ao inv√©s de colocar Tipo de Regime Pol√≠tico,
+#             seria mais expl√≠cito colocar democ_regime08, pois tamb√©m existe
+#             uma vari√°vel chamada regime_type3 a qual representa justamen-
+#             regimes pol√≠ticos. Por√©m, e eu n√£o sei se isso influenciaria,
+#             essa √∫ltima vari√°vel n√£o √© dicot√¥- mica! Ou seja, n√£o podemos
 #             usar o t.test() nela!
 
-## Por fim, ao invÈs de utilizar uma vari·vel bin·ria de democracia,
-## utilize a vari·vel dem_score14 para avaliar se existe uma associaÁ„o
-## entre regime polÌtico e desenvolvimento econÙmico. Represente
-## a associaÁ„o graficamente, faÁa o teste estatÌstico e explica sua
-## conclus„o
+## Por fim, ao inv√©s de utilizar uma vari√°vel bin√°ria de democracia,
+## utilize a vari√°vel dem_score14 para avaliar se existe uma associa√ß√£o
+## entre regime pol√≠tico e desenvolvimento econ√¥mico. Represente
+## a associa√ß√£o graficamente, fa√ßa o teste estat√≠stico e explica sua
+## conclus√£o
 
 ggplot( banco, aes( dem_score14, gdppcap08 ) ) +
-        geom_point( )
-
-ggplot( banco, aes( gdppcap08, dem_score14 ) ) +
         geom_point( )
 
 scatter.smooth( x = banco$dem_score14, y = banco$gdppcap08, main = "Dem Score x GDPC",
@@ -125,37 +122,37 @@ summary( reg_lin )
 
 plot( reg_lin )
 
-# RESPOSTA: Existe sim uma relaÁ„o positiva entre nÌvel de democracia e renda per
-#           capta. Podemos afirmar que o nÌvel da democracia influencia sim o nÌvel
-#           de desenvolvimento econÙnomico. PorÈm, tal relaÁ„o È mais aparente em
-#           nÌveis mais altos de democracia. Em nÌveis mais baixos ela n„o È t„o
+# RESPOSTA: Existe sim uma rela√ß√£o positiva entre n√≠vel de democracia e renda per
+#           capta. Podemos afirmar que o n√≠vel da democracia influencia sim o n√≠vel
+#           de desenvolvimento econ√¥nomico. Por√©m, tal rela√ß√£o √© mais aparente em
+#           n√≠veis mais altos de democracia. Em n√≠veis mais baixos ela n√£o √© t√£o
 #           forte assim.
 
-## Teste a associaÁ„o entre renda perca capta e religiao (com a vari·vel
-## muslim) e represente graficamente. Qual È sua conclus„o? 
+## Teste a associa√ß√£o entre renda perca capta e religiao (com a vari√°vel
+## muslim) e represente graficamente. Qual √© sua conclus√£o? 
 
 ggplot( banco, aes( muslim, gdppcap08 ) ) +
         geom_boxplot( )
 
 t.test( gdppcap08 ~ muslim, data = banco )
 
-# RESPOSTA: Existe sim uma relaÁ„o entre religi„o e renda. Mais especificamente,
-#           tal relaÁ„o È de que n„o-mulÁumanos estao associados a rendas mais
-#           altas do que mulÁumanos. Ou seja, n„o-mulÁumanos s„o mais economicamente
+# RESPOSTA: Existe sim uma rela√ß√£o entre religi√£o e renda. Mais especificamente,
+#           tal rela√ß√£o √© de que n√£o-mul√ßumanos estao associados a rendas mais
+#           altas do que mul√ßumanos. Ou seja, n√£o-mul√ßumanos s√£o mais economicamente
 #           desenvolvidos.
 
-## Comparando suas conclusıes anteriores, È possÌvel afirmar qual
-## das duas vari·veis possui maior impacto no desenvolvimento economico?
+## Comparando suas conclus√µes anteriores, √© poss√≠vel afirmar qual
+## das duas vari√°veis possui maior impacto no desenvolvimento economico?
 ## Por que? 
 
-# RESPOSTA: Eu diria que a relaÁ„o entre democracia tem maior impacto
-#           no desenvolvimento econÙmico, mas a diferenÁa entre o
-#           impacto da democracia no desenvolvimento econÙmico e o 
-#           impacto da religi„o no desenvolvimento econÙmico È extre-
-#           mamente pequena. Ela existe, mas È muito pequena.
+# RESPOSTA: Eu diria que a rela√ß√£o entre democracia tem maior impacto
+#           no desenvolvimento econ√¥mico, mas a diferen√ßa entre o
+#           impacto da democracia no desenvolvimento econ√¥mico e o 
+#           impacto da religi√£o no desenvolvimento econ√¥mico √© extre-
+#           mamente pequena. Ela existe, mas √© muito pequena.
 
 ##########################################################################
 
-## ExercÌcio teÛrico
-## Levando em consideraÁ„o as vari·veis de seu trabalho final,
-## qual dos 3 testes estatÌsticos utilizados seria adequado utilizar?
+## Exerc√≠cio te√≥rico
+## Levando em considera√ß√£o as vari√°veis de seu trabalho final,
+## qual dos 3 testes estat√≠sticos utilizados seria adequado utilizar?
